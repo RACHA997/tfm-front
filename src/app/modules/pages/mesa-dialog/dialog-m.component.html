@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Anadir Mesa</h1>
+<div mat-dialog-content>
+    <form [formGroup]="mesaForm">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Numero Mesa</mat-label>
+            <input  formControlName="numeroMesa" matInput  type="number" placeholder="Placeholder">
+
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Cantidad Personas</mat-label>
+            <input   formControlName="cantidadPersonas" matInput type="number" placeholder="Placeholder">
+
+          </mat-form-field>
+
+
+          <mat-form-field appearance="fill">
+            <mat-label>Select un Estado</mat-label>
+            <mat-select formControlName="estado" placeholder="Estado">
+              <mat-option value="Ocupada">Ocupada</mat-option>
+              <mat-option value="Disponible">Disponible</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+
+
+
+
+    </form>
+
+
+
+</div>
+
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close> Cerrar</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addMesa()"> {{actionBtn}} </button>
+
+</div>

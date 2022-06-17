@@ -1,0 +1,111 @@
+{
+  "empleadoList": [
+    {
+      "nombre": "chahi",
+      "apellido": "ldj",
+      "telefono": "777",
+      "rol": "Cajero",
+      "id": 3
+    },
+    {
+      "nombre": "Schahineze",
+      "apellido": "lairedj",
+      "telefono": "602579378",
+      "rol": "Camarero",
+      "id": 4
+    },
+    {
+      "nombre": "Oscar",
+      "apellido": "Turij",
+      "telefono": "88888",
+      "rol": "Camarero",
+      "id": 5
+    },
+    {
+      "nombre": "Racha",
+      "apellido": "wafa",
+      "telefono": "9007998",
+      "rol": "Cocinero",
+      "id": 6
+    },
+    {
+      "nombre": "Ramon",
+      "apellido": "Alx",
+      "telefono": "67778889",
+      "rol": "Encargado",
+      "id": 7
+    },
+    {
+      "nombre": "Ayoub",
+      "apellido": "Nadir",
+      "telefono": "677779",
+      "rol": "Cajero",
+      "id": 8
+    },
+    {
+      "nombre": "Oscar",
+      "apellido": "Arrg",
+      "telefono": "886666",
+      "rol": "Camarero",
+      "id": 9
+    }
+  ],
+  "mesaList": [
+    {
+      "numeroMesa": 1,
+      "cantidadPersonas": 1,
+      "estado": "Ocupada",
+      "id": 1
+    },
+    {
+      "numeroMesa": 3,
+      "cantidadPersonas": 0,
+      "estado": "Disponible",
+      "id": 3
+    },
+    {
+      "numeroMesa": 2,
+      "cantidadPersonas": 2,
+      "estado": "Ocupada",
+      "id": 4
+    },
+    {
+      "numeroMesa": 4,
+      "cantidadPersonas": 3,
+      "estado": "Ocupada",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "negocioList": [
+    {
+      "nombrerest": "El Buen Comer",
+      "direccionrest": "Calle Mayor, 8, 03002 Alicante España",
+      "telefonorest": "611209603",
+      "tipo": "Restaurante",
+      "id": 2
+    },
+    {
+      "nombrerest": "Bar Mallorca",
+      "direccionrest": "Calle Mallorca, 03500 Benidorm España",
+      "telefonorest": "611209603",
+      "tipo": "Bar",
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    }
+  ]
+}

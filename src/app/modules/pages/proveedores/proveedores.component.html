@@ -1,0 +1,202 @@
+
+<div class="container" style="padding-top: 30px;">
+ <!-- <form [formGroup]="proveedorForm"> para los controles del formulario formControlName="TipoRb" name="TipoRb" id="TipoRb"-->
+    <mat-radio-group class="example-radio-group">
+      <mat-radio-button value="1" (change)="showProveedorServicios()" >Proveedores de Servicios</mat-radio-button>
+      <mat-radio-button value="2" (change)="showProveedorIngredientes()">Proveedores de Alimentos</mat-radio-button>
+    </mat-radio-group>
+<!--</form>-->
+</div>
+
+
+<div *ngIf="servicioVisible">
+
+
+  <div class="container">
+    <div style="margin-top: 10px">
+
+    </div>
+    <div style="margin-top: 1px">
+      <div class="example-spacer">
+        <button mat-icon-button (click)="openProveedorServicio()">
+          <mat-icon>add</mat-icon>
+        </button>
+        Nuevo proveedor
+        </div>
+      <mat-form-field appearance="standard">
+
+        <mat-label>Filtrar</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. Mia"
+          #input
+        />
+
+      </mat-form-field>
+
+      <div class="mat-elevation-z8">
+
+        <table mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+            <td mat-cell *matCellDef="let row">{{ row.tipo }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 40px;">Nombre</th>
+            <td mat-cell *matCellDef="let row" style="padding-left: 40px;">{{ row.nombre }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="monto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 50px;">Monto</th>
+            <td mat-cell *matCellDef="let row" style="padding-left: 50px;">{{ row.monto }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha_inicio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 50px;">Fecha de inicio</th>
+            <td mat-cell *matCellDef="let row" style="padding-left: 50px;">{{ row.fecha_inicio }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha_final">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 50px;">Fecha final</th>
+            <td mat-cell *matCellDef="let row" style="padding-left: 50px;">{{ row.fecha_final }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="codigo_contrato">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 50px;">Código de contrato</th>
+            <td mat-cell *matCellDef="let row" style="padding-left: 50px;">{{ row.codigo_contrato }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 40px;">Acciones</th>
+            <td mat-cell *matCellDef="let row" style="padding-left: 40px;">
+
+
+              <button mat-icon-button (click)="editProveedorServicios(row)" color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button
+                mat-icon-button
+                (click)="deleteProveedorServicios(row.id)"
+                color="warn"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="5">
+              No se encuentran datos que coincidan con "{{ input.value }}"
+            </td>
+          </tr>
+        </table>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          aria-label="Select page of users"
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div *ngIf="ingredienteVisible" style="visibility: visible;">
+
+
+  <div class="container">
+    <div style="margin-top: 10px">
+
+    </div>
+    <div style="margin-top: 1px">
+      <div class="example-spacer">
+        <button mat-icon-button (click)="openProveedorIngrediente()">
+          <mat-icon>add</mat-icon>
+        </button>
+        Nuevo alimento
+        </div>
+      <mat-form-field appearance="standard">
+
+        <mat-label>Filtrar</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilterIngredientes($event)"
+          placeholder="Ex. Mia"
+          #input
+        />
+
+      </mat-form-field>
+
+      <div class="mat-elevation-z8">
+
+
+          <table mat-table [dataSource]="dataSource_ing" matSort>
+
+            <ng-container matColumnDef="nombre_ing">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-right: 180px;">Nombre</th>
+              <td mat-cell *matCellDef="let row" style="padding-right: 180px;">{{ row.nombre_ing }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="cantidad_ing">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-right: 80px;">Cantidad</th>
+              <td mat-cell *matCellDef="let row" style="padding-right: 80px;">{{ row.cantidad_ing }}</td>
+            </ng-container>
+
+          <ng-container matColumnDef="monto_ing">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-right: 80px;">Monto</th>
+            <td mat-cell *matCellDef="let row" style="padding-right: 80px;">{{ row.monto_ing }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha_entrega">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-right: 80px;">Fecha de entrega</th>
+            <td mat-cell *matCellDef="let row" style="padding-right: 80px;">{{ row.fecha_entrega }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="acciones_ing">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-right: 80px;">Acciones</th>
+            <td mat-cell *matCellDef="let row" style="padding-right: 80px;">
+
+
+              <button mat-icon-button (click)="editProveedorServicios(row)" color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button
+                mat-icon-button
+                (click)="deleteProveedorIngredientes(row.id)"
+                color="warn"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns_ing"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns_ing"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="5">
+              No se encuentran datos que coincidan con "{{ input.value }}"
+            </td>
+          </tr>
+        </table>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          aria-label="Select page of users"
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+
+  </div>

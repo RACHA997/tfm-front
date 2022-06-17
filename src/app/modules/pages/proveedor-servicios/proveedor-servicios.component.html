@@ -1,0 +1,68 @@
+
+<h1 mat-dialog-title>Añadir Proveedor de Servicio</h1>
+
+<div mat-dialog-content>
+
+    <form [formGroup]="provServicioForm">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo</mat-label>
+            <input formControlName="tipo" matInput placeholder="Tipo">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input formControlName="nombre" matInput placeholder="Nombre">
+
+      </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Monto</mat-label>
+            <input formControlName="monto" matInput placeholder="Monto">
+
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Fecha de inicio</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fecha_inicio">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Fecha final</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="fecha_final">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker1">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+
+
+
+
+
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Código de contrato</mat-label>
+            <input formControlName="codigo_contrato" matInput placeholder="codigo_contrato">
+
+        </mat-form-field>
+
+
+    </form>
+
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close> Cerrar</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addProveedorServicio()"> {{actionBtn}}</button>
+</div>
